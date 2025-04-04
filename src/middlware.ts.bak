@@ -1,0 +1,16 @@
+import { authMiddleware } from "@clerk/nextjs";
+ 
+// Ceci permet de protéger toutes les routes sauf celles spécifiées dans publicRoutes
+export default authMiddleware({
+  // Routes qui peuvent être accédées sans authentification
+  publicRoutes: [
+    "/",
+    "/sign-in*",
+    "/sign-up*", 
+    "/api/public*"
+  ],
+});
+ 
+export const config = {
+  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+};

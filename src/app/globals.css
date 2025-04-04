@@ -2,25 +2,75 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e293b;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #0ca5e9;
+  --primary-foreground: #f8fafc;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #1e293b;
+  --destructive: #FFA1A1;
+  --destructive-foreground: #f8fafc;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #94a3b8;
+  
+  /* Couleurs des catégories pastel */
+  --category-food: #9ED5C5;
+  --category-entertainment: #BCABD9;
+  --category-transportation: #FFB996;
+  --category-shopping: #FDE4CF;
+  --category-health: #FFA1A1;
+  --category-other: #A7C5EB;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #1E1E2E;
+  --foreground: #CDD6F4;
+  --card: #2A2A3C;
+  --card-foreground: #CDD6F4;
+  --popover: #2A2A3C;
+  --popover-foreground: #CDD6F4;
+  --primary: #74c7ec;
+  --primary-foreground: #1e293b;
+  --secondary: #313244;
+  --secondary-foreground: #CDD6F4;
+  --muted: #313244;
+  --muted-foreground: #989AB3;
+  --accent: #313244;
+  --accent-foreground: #CDD6F4;
+  --destructive: #F38BA8;
+  --destructive-foreground: #1e293b;
+  --border: #393950;
+  --input: #393950;
+  --ring: #74c7ec;
+  
+  /* Couleurs des catégories légèrement atténuées pour le mode sombre */
+  --category-food: #8ECAB9;
+  --category-entertainment: #A799C9;
+  --category-transportation: #EFAC8C;
+  --category-shopping: #E8D0BC;
+  --category-health: #E99292;
+  --category-other: #95B0D3;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+}
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
